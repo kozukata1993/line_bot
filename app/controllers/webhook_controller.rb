@@ -2,6 +2,7 @@ require 'line/bot'
 require 'calender/calender'
 
 class WebhookController < ApplicationController
+  include Calender
 	protect_from_forgery except: :callback
 
 	def callback
