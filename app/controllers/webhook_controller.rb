@@ -1,8 +1,8 @@
 require 'line/bot'
-# require 'line/test.rb'
 
 class WebhookController < ApplicationController
 	protect_from_forgery except: :callback
+  before_action :calender
 
 	def callback
 		body = request.body.read
@@ -20,7 +20,7 @@ class WebhookController < ApplicationController
         when Line::Bot::Event::MessageType::Text
           message = {
             type: 'text',
-            text: 'Hello'
+            text: "#{@now}"
           }
           client.reply_message(event['replyToken'], message)
         end
@@ -28,7 +28,12 @@ class WebhookController < ApplicationController
     }
 
     head :ok
-	end
+  end
+
+  def calender
+    @now = Time.now
+  end
+  
 
 	private
 
