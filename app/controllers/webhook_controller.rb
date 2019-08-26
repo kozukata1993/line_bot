@@ -1,4 +1,5 @@
 require 'line/bot'
+require 'calender/calender'
 
 class WebhookController < ApplicationController
 	protect_from_forgery except: :callback
@@ -19,8 +20,7 @@ class WebhookController < ApplicationController
         when Line::Bot::Event::MessageType::Text
           message = {
             type: 'text',
-            # text: event.message['text']
-            text: 'Hello'
+            text: loud(event.message['text'])
           }
           client.reply_message(event['replyToken'], message)
         end
