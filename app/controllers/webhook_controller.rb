@@ -1,5 +1,5 @@
 require 'line/bot'
-# require './../../vendor/bundle/ruby/2.6.0/gems/line-bot-api-1.12.0/lib/calender/calender'
+require 'line/test.rb'
 
 class WebhookController < ApplicationController
 	protect_from_forgery except: :callback
