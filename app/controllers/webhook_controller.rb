@@ -20,7 +20,7 @@ class WebhookController < ApplicationController
         when Line::Bot::Event::MessageType::Text
           message = {
             type: 'text',
-            text: loud('test')
+            text: loud
           }
           client.reply_message(event['replyToken'], message)
         end
