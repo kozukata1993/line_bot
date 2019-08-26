@@ -1,5 +1,5 @@
 require 'line/bot'
-require 'line/test.rb'
+# require 'line/test.rb'
 
 class WebhookController < ApplicationController
 	protect_from_forgery except: :callback
@@ -20,7 +20,7 @@ class WebhookController < ApplicationController
         when Line::Bot::Event::MessageType::Text
           message = {
             type: 'text',
-            text: 'hello'
+            text: 'Hello'
           }
           client.reply_message(event['replyToken'], message)
         end
