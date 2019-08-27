@@ -1,4 +1,5 @@
 require 'line/bot'
+require 'date'
 
 class WebhookController < ApplicationController
 	protect_from_forgery except: :callback
@@ -32,7 +33,7 @@ class WebhookController < ApplicationController
 
   # ここでゴミの日判定
   def calender
-    @now = Time.now
+    @now = Date.now
   end
   
 
