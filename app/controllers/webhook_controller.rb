@@ -1,5 +1,4 @@
 require 'line/bot'
-require 'date'
 
 class WebhookController < ApplicationController
 	protect_from_forgery except: :callback
