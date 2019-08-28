@@ -32,7 +32,7 @@ class WebhookController < ApplicationController
 
   # ここでゴミの日判定
   def calender
-    @now = Time.now
+    @now = Time.zone.now
   end
   
 
