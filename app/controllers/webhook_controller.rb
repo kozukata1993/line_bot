@@ -32,7 +32,7 @@ class WebhookController < ApplicationController
 
   # ここでゴミの日判定
   def make_reply
-    @day = Time.zone.now.day
+    @day = Time.zone.now
   end
   
 
