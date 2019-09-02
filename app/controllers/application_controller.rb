@@ -7,10 +7,9 @@ class ApplicationController < ActionController::Base
     day = Time.zone.now.day
 
     first_day = Time.zone.local(year, month, 1)
-    # last_day = (first_day << - 1) - 1
+    last_day = (first_day + 1.month) - 1.day 
 
-
-    @reply_text = "Hello!!\n#{first_day},"
+    @reply_text = "Hello!!\n#{first_day}, #{last_day}"
   end
 
 end
