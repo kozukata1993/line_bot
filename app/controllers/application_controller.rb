@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
 
 
-    @reply_text = "Hello!!\n#{Time.zone.now.class}"
+    @reply_text = "Hello!!\n#{Time.zone.now.day}"
   end
 
 end
