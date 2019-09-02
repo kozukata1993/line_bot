@@ -20,7 +20,7 @@ class WebhookController < ApplicationController
         when Line::Bot::Event::MessageType::Text
           message = {
             type: 'text',
-            text: "#{make_reply}" # ここにリプライメッセージ
+            text: "#{@day}" # ここにリプライメッセージ
           }
           client.reply_message(event['replyToken'], message)
         end
@@ -32,7 +32,7 @@ class WebhookController < ApplicationController
 
   # ここでゴミの日判定
   def make_reply
-    Time.zone.now.day
+    @day = Time.zone.now.day
   end
   
 
