@@ -8,7 +8,9 @@ class ApplicationController < ActionController::Base
     first_day = Time.zone.local(year, month, 1)
     last_day = (first_day + 1.month) - 1.day
 
-    month_range = (first_day..last_day)
+    month_range = (first_day.day..last_day.day)
+
+
     calendarray = [[], [], [], [], []]
     i = 0
     # month_range.each do |date|
