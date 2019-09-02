@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     first_day = Time.zone.local(year, month, 1)
     last_day = (first_day + 1.month) - 1.day
 
-    month_range = (first_day.day..last_day.day)
+    month_range = (*first_day.day..last_day.day)
 
 
     calendarray = [[], [], [], [], []]
@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     #   shrinked_calender << (week.map { |d| d.day }).join(' ')
     # end
 
-    @reply_text = "Hello!!\n#{month_range.size}"
+    @reply_text = "Hello!!\n#{month_range.size}\n#{month_range.class}"
   end
 
 end
