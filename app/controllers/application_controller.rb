@@ -16,12 +16,12 @@ class ApplicationController < ActionController::Base
       i += 1 if date.saturday?
     end
 
-    shrinked_calender = []
-    calendarray.each do |week|
-      shrinked_calender << (week.map { |d| d.day }).join(' ')
-    end
+    # shrinked_calender = []
+    # calendarray.each do |week|
+    #   shrinked_calender << (week.map { |d| d.day }).join(' ')
+    # end
 
-    @reply_text = "Hello!!\n#{shrinked_calender.join("\n")}"
+    @reply_text = "Hello!!"
   end
 
 end
