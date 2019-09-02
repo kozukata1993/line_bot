@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     #   shrinked_calender << (week.map { |d| d.day }).join(' ')
     # end
 
-    @reply_text = "Hello!!\n#{month_range.class}"
+    @reply_text = "Hello!!\n#{month_range.size}"
   end
 
 end
