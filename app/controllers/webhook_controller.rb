@@ -2,7 +2,6 @@ require 'line/bot'
 
 class WebhookController < ApplicationController
 	protect_from_forgery except: :callback
-  before_action :calender
 
 	def callback
 		body = request.body.read
@@ -20,7 +19,7 @@ class WebhookController < ApplicationController
         when Line::Bot::Event::MessageType::Text
           message = {
             type: 'text',
-            text: "#{@day}" # ここにリプライメッセージ
+            text: "#{@reply_text}" # ここにリプライメッセージ
           }
           client.reply_message(event['replyToken'], message)
         end
@@ -30,13 +29,7 @@ class WebhookController < ApplicationController
     head :ok
   end
 
-  # ここでゴミの日判定
-  def make_reply
-    @day = Time.zone.now
-  end
-  
-
-	private
+  private
 
   def client
     @client ||= Line::Bot::Client.new { |config|
