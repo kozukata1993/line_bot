@@ -5,20 +5,23 @@ class ApplicationController < ActionController::Base
     year = Time.zone.now.year
     month = Time.zone.now.month
     day = Time.zone.now.day
-
     first_day = Time.zone.local(year, month, 1)
     last_day = (first_day + 1.month) - 1.day
 
     month_range = (first_day..last_day)
     calendarray = [[], [], [], [], []]
-
-    if Time.zone.now.saturday?
-      @reply_text = "Saturday"
-    else
-      @reply_text = "not Saturday"
+    i = 0
+    month_range.each do |date|
+      calendarray[i] << date
+      i += 1 if date.saturday?
     end
 
-    # @reply_text = "Hello!!\n#{first_day}, #{last_day}"
+    shrinked_calender = []
+    calendarray.each do |week|
+      shrinked_calender << (week.map { |d| d.day }).join(' ')
+    end
+
+    @reply_text = "Hello!!\n#{shrinked_calender.join("\n")}"
   end
 
 end
