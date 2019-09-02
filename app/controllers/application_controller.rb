@@ -13,10 +13,10 @@ class ApplicationController < ActionController::Base
 
     calendarray = [[], [], [], [], []]
     i = 0
-    # month_array.each do |date|
-    #   calendarray[i] << date
-    #   i += 1 if date.saturday?
-    # end
+    month_array.each do |date|
+      calendarray[i] << date
+      i += 1 if date.saturday?
+    end
 
     # shrinked_calender = []
     # calendarray.each do |week|
