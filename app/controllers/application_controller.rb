@@ -9,19 +9,25 @@ class ApplicationController < ActionController::Base
     last_day = (first_day + 1.month) - 1.day
 
     month_array = [*first_day.day..last_day.day].map { |d| Time.zone.local(year, month, d) }
-    calendarray = [[], [], [], [], []]
+    calendar_array = [[], [], [], [], []]
     i = 0
     month_array.each do |date|
       calendarray[i] << date
       i += 1 if date.saturday?
     end
 
-    shrinked_calender = []
-    calendarray.each do |week|
-      shrinked_calender << (week.map { |d| d.day }).join(' ')
+    calendar_range_array = calendar_array.map do |week|
+      (week[0]...(week[week.size - 1] + 1.day))
     end
 
-    @reply_text = "Hello!!\n#{shrinked_calender.join("\n")}"
+
+
+    # shrinked_calender = []
+    # calendarray.each do |week|
+    #   shrinked_calender << (week.map { |d| d.day }).join(' ')
+    # end
+
+    @reply_text = "Hello!!"
   end
 
 end
