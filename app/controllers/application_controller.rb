@@ -16,9 +16,9 @@ class ApplicationController < ActionController::Base
       i += 1 if date.saturday?
     end
 
-    calendar_range_array = calendar_array.map do |week|
-      (week[0]...(week[week.size - 1] + 1.day))
-    end
+    # calendar_range_array = calendar_array.map do |week|
+    #   (week[0]...(week[week.size - 1] + 1.day))
+    # end
 
 
 
