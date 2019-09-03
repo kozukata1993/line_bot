@@ -12,13 +12,13 @@ class ApplicationController < ActionController::Base
     calendar_array = [[], [], [], [], []]
     i = 0
     month_array.each do |date|
-      calendarray[i] << date
+      calendar_array[i] << date
       i += 1 if date.saturday?
     end
 
-    # calendar_range_array = calendar_array.map do |week|
-    #   (week[0]...(week[week.size - 1] + 1.day))
-    # end
+    calendar_range_array = calendar_array.map do |week|
+      (week[0]...(week[week.size - 1] + 1.day))
+    end
 
 
 
