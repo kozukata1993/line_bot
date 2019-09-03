@@ -20,9 +20,6 @@ class ApplicationController < ActionController::Base
       (week[0]...(week[-1] + 1.day))
     end
 
-    if Time.zone.local(2019, 9, 7)
-
-
     # shrinked_calender = []
     # calendar_array.each do |week|
     #   shrinked_calender << (week.map { |d| d.day }).join(' ')
