@@ -17,17 +17,18 @@ class ApplicationController < ActionController::Base
     end
 
     calendar_range_array = calendar_array.map do |week|
-      (week[0]...(week[week.size - 1] + 1.day))
+      (week[0]...(week[-1] + 1.day))
     end
 
+    if Time.zone.local(2019, 9, 7)
 
 
     # shrinked_calender = []
-    # calendarray.each do |week|
+    # calendar_array.each do |week|
     #   shrinked_calender << (week.map { |d| d.day }).join(' ')
     # end
 
-    @reply_text = "Hello!!"
+    @reply_text = "Success"
   end
 
 end
