@@ -20,15 +20,15 @@ class ApplicationController < ActionController::Base
       (week[0]...(week[-1] + 1.day))
     end
 
-    # shrinked_calender = []
-    # calendar_array.each do |week|
-    #   shrinked_calender << (week.map { |d| d.day }).join(' ')
-    # end
-
     now = Time.zone.now
+    if (calendar_range_array[1].include?(now) && now.thursday?) || _
+      (calendar_range_array[0].include?(now) && now.wednesday?)
+      @reply_text = 'ペットボトル捨てる日です'
+    else
+      @reply_text = "Success!!"
+    end
 
 
-    @reply_text = "Success\n#{now}"
   end
 
 end
