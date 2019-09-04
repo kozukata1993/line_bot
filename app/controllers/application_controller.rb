@@ -25,7 +25,10 @@ class ApplicationController < ActionController::Base
     #   shrinked_calender << (week.map { |d| d.day }).join(' ')
     # end
 
-    @reply_text = "Success"
+    now = Time.zone.now
+
+
+    @reply_text = "Success\n#{now}"
   end
 
 end
