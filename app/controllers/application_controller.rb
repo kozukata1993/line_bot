@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
 
     month_array = [*first_day.day..last_day.day].map { |d| Time.zone.local(year, month, d) }
     calendar_array = [[], [], [], [], []]
+
     i = 0
     month_array.each do |date|
       calendar_array[i] << date
@@ -22,13 +23,14 @@ class ApplicationController < ActionController::Base
 
     now = Time.zone.now
     if (calendar_range_array[1].include?(now) && now.thursday?) || \
-      (calendar_range_array[0].include?(now) && now.wednesday?)
-      @reply_text = 'ペットボトル捨てる日です'
+      (calendar_range_array[3].include?(now) && now.thursday?)
+      @reply_text = 'ペットボトルを捨てる日です'
+    elsif now.tuesday? || now.friday?
+      @reply_text = '燃えるゴミを捨てる日です'
+    elsif now.saturday?
+      @reply_text = '缶と瓶を捨てる日です'
     else
       @reply_text = "Success!!"
     end
-
-
   end
-
 end
