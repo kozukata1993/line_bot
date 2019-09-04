@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     end
 
     now = Time.zone.now
-    if (calendar_range_array[1].include?(now) && now.thursday?) || _
+    if (calendar_range_array[1].include?(now) && now.thursday?) || \
       (calendar_range_array[0].include?(now) && now.wednesday?)
       @reply_text = 'ペットボトル捨てる日です'
     else
